@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Jonathan Katanacho, Software Engineering student at Bethlehem University.">
+    <title>Jonathan Katanacho | Portfolio</title>
+
+    <!-- Google Fonts: Chakra Petch (headings), JetBrains Mono (labels), Inter (body text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER + NAVIGATION BAR ===== -->
+    <header class="site-header">
+        <a href="#home" class="logo">&gt; JK<span class="cursor">_</span></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ===== HERO SECTION (profile card) ===== -->
+        <section id="home" class="hero">
+            <div class="profile-card">
+                <div class="profile-photo">
+                    <div class="photo-crop">
+                        <img src="images/profile.png" alt="Photo of Jonathan Katanacho">
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <p class="intro-label">Hello, I'm</p>
+                    <h1>Jonathan Katanacho</h1>
+                    <h2>Software Engineering Student</h2>
+
+                    <ul class="profile-facts">
+                        <li><span>Interests</span> Games &amp; Software</li>
+                        <li><span>Year</span> Third Year</li>
+                        <li><span>University</span> Bethlehem University</li>
+                    </ul>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" class="section">
+            <h2 class="section-title"><span>01 //</span> About Me</h2>
+
+            <div class="about-layout">
+                <div class="panel about-text">
+                    <p>
+                        I'm a third-year Software Engineering student at <strong>Bethlehem University</strong>
+                        with a strong interest in <strong>game development</strong> and software in general. Ideas come to me quickly,
+                        and what I enjoy most is figuring out how to turn them into something real.
+                    </p>
+                    <p>
+                        Outside of class I'm developing my own game, I've worked with Unity, built a
+                        Minecraft PvP client in Java, and made an Arduino project. Next, I'm learning
+                        Unreal Engine and C++ so I can keep growing as a developer.
+                    </p>
+                    <p>
+                        Beyond programming, a few of the other things I'm into are chess and video editing.
+                    </p>
+                </div>
+
+                <!-- Achievements outside of programming -->
+                <div class="achievements">
+                    <article class="panel achievement">
+                        <p class="achievement-icon">♞&#xFE0E;</p>
+                        <div>
+                            <h3>Chess</h3>
+                            <p class="achievement-stat">2106 <small>Rapid · Chess.com</small></p>
+                            <p class="achievement-stat">1543 <small>FIDE</small></p>
+                            <a href="https://www.chess.com/member/pawnoverdrive" target="_blank" rel="noopener" class="text-link">View profile ↗</a>
+                        </div>
+                    </article>
+                    <article class="panel achievement">
+                        <p class="achievement-icon">▶&#xFE0E;</p>
+                        <div>
+                            <h3>Video Editing</h3>
+                            <p>Edited many videos in CapCut, from cuts and transitions to effects and music syncing.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION (skill bars) ===== -->
+        <section id="skills" class="section section-alt">
+            <h2 class="section-title"><span>02 //</span> Skills</h2>
+
+            <div class="skills-layout">
+                <!-- Each bar's width comes from the --level value -->
+                <article class="panel">
+                    <h3 class="panel-title">Core Strengths</h3>
+                    <ul class="stat-list">
+                        <li>
+                            <p class="stat-name">Problem Solving <span>95</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 95%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">Idea Implementation <span>92</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 92%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">Fast Learning <span>90</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 90%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">Game Design <span>85</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 85%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">Video Editing <span>75</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 75%"></div></div>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="panel">
+                    <h3 class="panel-title">Technical</h3>
+                    <ul class="stat-list stat-list-tech">
+                        <li>
+                            <p class="stat-name">Java <span>82</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 82%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">HTML &amp; CSS <span>78</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 78%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">JavaScript <span>60</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 60%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">Unity <span>55</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 55%"></div></div>
+                        </li>
+                        <li>
+                            <p class="stat-name">C++ <span>35</span></p>
+                            <div class="bar"><div class="bar-fill" style="--level: 35%"></div></div>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="panel tools">
+                    <h3 class="panel-title">Tools</h3>
+                    <ul class="slots">
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>VS Code</li>
+                        <li>CapCut</li>
+                        <li>Arduino</li>
+                        <li class="learning">Unreal Engine <small>learning</small></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION ===== -->
+        <section id="projects" class="section">
+            <h2 class="section-title"><span>03 //</span> Projects</h2>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="images/project-game.svg" alt="Game in development">
+                    <div class="project-info">
+                        <p class="badge badge-progress">In Progress</p>
+                        <h3>Strategy Game</h3>
+                        <p>
+                            A strategy game I'm designing and building from the ground up.
+                            Still in development, so the details are under wraps for now.
+                        </p>
+                        <ul class="tags">
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img src="images/project-pvp-mod.svg" alt="Preview of a Minecraft PvP client interface">
+                    <div class="project-info">
+                        <p class="badge badge-done">Completed</p>
+                        <h3>Minecraft PvP Client</h3>
+                        <p>
+                            A custom Minecraft PvP client made in Java.
+                        </p>
+                        <ul class="tags">
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img src="images/project-reaction.svg" alt="Arduino board and breadboard reaction time circuit">
+                    <div class="project-info">
+                        <p class="badge badge-done">Completed</p>
+                        <h3>Reaction Time Tester</h3>
+                        <p>
+                            A reaction time application built with an Arduino, a breadboard and
+                            electronic components, programmed to measure how fast the user reacts.
+                        </p>
+                        <ul class="tags">
+                            <li>Arduino</li>
+                            <li>Electronics</li>
+                            <li>C++</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" class="section section-alt">
+            <h2 class="section-title"><span>04 //</span> Contact</h2>
+
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <p>Have a question or want to work together? Send me a message.</p>
+                    <ul class="contact-links">
+                        <li><a href="mailto:202404295@bethlehem.edu"><span>Email</span> 202404295@bethlehem.edu</a></li>
+                        <li><a href="https://www.linkedin.com/in/jonathan-katanacho-7b0b92366/" target="_blank" rel="noopener"><span>LinkedIn</span> Jonathan Katanacho</a></li>
+                        <li><a href="https://github.com/IamjonK" target="_blank" rel="noopener"><span>GitHub</span> @IamjonK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Simple contact form: opens the visitor's email app with the message -->
+                <form class="panel contact-form" action="mailto:202404295@bethlehem.edu" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <p class="footer-title">Thanks for visiting.</p>
+        <p>&copy; 2026 Jonathan Katanacho · Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <rect width="400" height="250" fill="#0d0d18"/>
+  <g stroke="#a855f7" stroke-opacity=".12"><path d="M0 50H400M0 100H400M0 150H400M0 200H400M50 0V250M100 0V250M150 0V250M200 0V250M250 0V250M300 0V250M350 0V250"/></g>
+  <!-- arduino board -->
+  <rect x="30" y="55" width="140" height="100" rx="6" fill="#0e7490"/>
+  <rect x="38" y="62" width="124" height="8" fill="#111827"/><rect x="38" y="140" width="90" height="8" fill="#111827"/>
+  <rect x="80" y="88" width="50" height="30" rx="2" fill="#111827"/>
+  <rect x="22" y="80" width="22" height="18" fill="#9ca3af"/><rect x="22" y="112" width="18" height="22" fill="#374151"/>
+  <text x="105" y="108" text-anchor="middle" font-family="monospace" font-size="9" fill="#e5e7eb">UNO</text>
+  <!-- breadboard -->
+  <rect x="210" y="40" width="165" height="130" rx="6" fill="#e5e7eb"/>
+  <rect x="210" y="100" width="165" height="8" fill="#d1d5db"/>
+  <g fill="#9ca3af"><circle cx="225" cy="55" r="2"/><circle cx="240" cy="55" r="2"/><circle cx="255" cy="55" r="2"/><circle cx="270" cy="55" r="2"/><circle cx="285" cy="55" r="2"/><circle cx="300" cy="55" r="2"/><circle cx="315" cy="55" r="2"/><circle cx="330" cy="55" r="2"/><circle cx="345" cy="55" r="2"/><circle cx="360" cy="55" r="2"/>
+  <circle cx="225" cy="155" r="2"/><circle cx="240" cy="155" r="2"/><circle cx="255" cy="155" r="2"/><circle cx="270" cy="155" r="2"/><circle cx="285" cy="155" r="2"/><circle cx="300" cy="155" r="2"/><circle cx="315" cy="155" r="2"/><circle cx="330" cy="155" r="2"/><circle cx="345" cy="155" r="2"/><circle cx="360" cy="155" r="2"/></g>
+  <!-- LED glowing + button -->
+  <circle cx="255" cy="78" r="18" fill="#a3e635" opacity=".25"/><circle cx="255" cy="78" r="9" fill="#a3e635"/>
+  <rect x="310" y="120" width="26" height="26" rx="3" fill="#374151"/><circle cx="323" cy="133" r="8" fill="#ef4444"/>
+  <!-- wires -->
+  <g fill="none" stroke-width="3"><path d="M150 66C190 66 200 90 245 90" stroke="#a855f7"/><path d="M120 144C190 190 290 180 315 146" stroke="#f59e0b"/><path d="M160 144C200 150 230 120 300 120" stroke="#22c55e"/></g>
+  <text x="200" y="222" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" letter-spacing="3" fill="#a3e635">REACTION: 213 ms</text>
+</svg>

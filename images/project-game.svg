@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <rect width="400" height="250" fill="#0d0d18"/>
+  <g stroke="#a855f7" stroke-opacity=".12"><path d="M0 50H400M0 100H400M0 150H400M0 200H400M50 0V250M100 0V250M150 0V250M200 0V250M250 0V250M300 0V250M350 0V250"/></g>
+  <path d="M135 85h130c28 0 42 22 48 60 5 30-12 45-28 35-12-8-22-25-38-25h-94c-16 0-26 17-38 25-16 10-33-5-28-35 6-38 20-60 48-60z" fill="none" stroke="#a855f7" stroke-width="4"/>
+  <g fill="#a855f7"><rect x="138" y="112" width="34" height="11" rx="2"/><rect x="149.5" y="100" width="11" height="34" rx="2"/></g>
+  <g fill="#a3e635"><circle cx="250" cy="106" r="7"/><circle cx="266" cy="122" r="7"/><circle cx="234" cy="122" r="7"/><circle cx="250" cy="138" r="7"/></g>
+  <text x="200" y="222" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" letter-spacing="4" fill="#a3e635">IN DEVELOPMENT</text>
+</svg>

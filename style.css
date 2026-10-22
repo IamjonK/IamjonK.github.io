@@ -1,0 +1,762 @@
+/* =========================================
+   1. VARIABLES (colors and fonts used everywhere)
+   ========================================= */
+:root {
+    --bg: #0a0a12;          /* near-black background */
+    --bg-alt: #0f0f1c;      /* slightly lighter, for alternating sections */
+    --panel: #13131f;       /* boxes / cards */
+    --border: #2a2a40;
+    --text: #e7e7f0;        /* main text */
+    --muted: #8b8ba7;       /* secondary text */
+    --purple: #a855f7;      /* main neon accent */
+    --lime: #a3e635;        /* second neon accent */
+    --radius: 6px;
+    --heading-font: "Chakra Petch", sans-serif;
+    --mono-font: "JetBrains Mono", monospace;
+    --body-font: "Inter", sans-serif;
+}
+
+/* =========================================
+   2. RESET + BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* padding is included in the width */
+}
+
+html {
+    scroll-behavior: smooth;  /* smooth scrolling when clicking nav links */
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text);
+    line-height: 1.6;
+    background-color: var(--bg);
+    /* faint grid lines in the background */
+    background-image:
+        linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;          /* images never overflow their container */
+    display: block;
+}
+
+/* Reusable dark box with a thin border */
+.panel {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+}
+
+/* Small uppercase monospace text used for labels */
+.intro-label,
+.profile-facts span,
+.panel-title,
+.badge,
+.contact-links span {
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   3. HEADER + NAVIGATION (Flexbox)
+   ========================================= */
+.site-header {
+    position: sticky;         /* stays at the top while scrolling */
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background-color: rgba(10, 10, 18, 0.92);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: var(--mono-font);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--lime);
+}
+
+/* blinking cursor after the logo */
+.cursor {
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.4rem 0.9rem;
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+    border-color: var(--purple);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+/* =========================================
+   4. BUTTONS
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-family: var(--mono-font);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--purple);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.btn-primary {
+    background-color: var(--purple);
+    color: #fff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--purple);
+}
+
+.btn-outline:hover {
+    background-color: var(--purple);
+    color: #fff;
+}
+
+/* =========================================
+   5. HERO SECTION - profile card (Flexbox)
+   ========================================= */
+.hero {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 8%;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 950px;
+    width: 100%;
+    padding: 2.5rem;
+    background-color: var(--panel);
+    border: 1px solid var(--purple);
+    border-radius: var(--radius);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
+}
+
+/* Photo frame with lime corner brackets */
+.profile-photo {
+    position: relative;
+    flex-shrink: 0;           /* the photo never gets squished */
+    width: 240px;
+    height: 240px;
+    padding: 10px;
+}
+
+.profile-photo::before,
+.profile-photo::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--lime);
+}
+
+.profile-photo::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+.profile-photo::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+}
+
+.photo-crop {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;       /* round crop */
+    overflow: hidden;         /* hides the parts of the zoomed photo outside the circle */
+    border: 2px solid var(--purple);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.32);   /* zoom in to cut off the original photo's frame */
+    /* filters to make the photo pop */
+    filter: contrast(1.1) saturate(1.2) brightness(1.05);
+}
+
+.intro-label {
+    font-size: 0.8rem;
+    color: var(--purple);
+}
+
+.profile-info h1 {
+    font-size: 3rem;
+    margin: 0.3rem 0;
+}
+
+.profile-info h2 {
+    font-size: 1.25rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.profile-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.profile-facts li {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--bg);
+    font-size: 0.95rem;
+}
+
+.profile-facts span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--lime);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* =========================================
+   6. GENERAL SECTION STYLES
+   ========================================= */
+.section {
+    padding: 5rem 8%;
+    scroll-margin-top: 60px;  /* so the sticky header doesn't cover titles */
+}
+
+.section-alt {
+    background-color: rgba(15, 15, 28, 0.85);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+}
+
+.section-title span {
+    font-family: var(--mono-font);
+    font-size: 1.1rem;
+    color: var(--purple);
+    margin-right: 0.5rem;
+}
+
+.panel-title {
+    font-size: 0.9rem;
+    color: var(--lime);
+    margin-bottom: 1.5rem;
+}
+
+.panel-title small {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.text-link {
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    color: var(--purple);
+    transition: color 0.2s;
+}
+
+.text-link:hover {
+    color: var(--lime);
+}
+
+/* =========================================
+   7. ABOUT SECTION (Grid)
+   ========================================= */
+.about-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;   /* text wider than the achievements */
+    gap: 1.5rem;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-text strong {
+    color: var(--text);
+}
+
+.achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.achievement {
+    display: flex;
+    gap: 1.2rem;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.achievement:hover {
+    border-color: var(--lime);
+    transform: translateX(6px);
+}
+
+.achievement .achievement-icon {
+    font-family: "Segoe UI Symbol", "DejaVu Sans", sans-serif;  /* fonts that include these symbols */
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--lime);
+}
+
+.achievement h3 {
+    margin-bottom: 0.4rem;
+}
+
+.achievement p {
+    color: var(--muted);
+}
+
+.achievement .achievement-stat {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.achievement-stat small {
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* =========================================
+   8. SKILLS SECTION - skill bars (Grid)
+   ========================================= */
+.skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.tools {
+    grid-column: 1 / -1;      /* tools box stretches across both columns */
+}
+
+.stat-list li {
+    margin-bottom: 1.2rem;
+}
+
+.stat-list li:last-child {
+    margin-bottom: 0;
+}
+
+.stat-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.stat-name span {
+    font-family: var(--mono-font);
+    color: var(--lime);
+}
+
+/* the empty bar */
+.bar {
+    height: 12px;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* the filled part; its width is the --level set in the HTML */
+.bar-fill {
+    width: var(--level);
+    height: 100%;
+    background-color: var(--lime);
+    /* dark gaps every 10px to make the bar look segmented */
+    background-image: repeating-linear-gradient(90deg, transparent 0 8px, var(--panel) 8px 10px);
+    box-shadow: 0 0 10px rgba(163, 230, 53, 0.5);
+}
+
+.stat-list-tech .bar-fill {
+    background-color: var(--purple);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Tool tags */
+.slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.slots li {
+    padding: 0.7rem 1.2rem;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.slots li:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+}
+
+.slots .learning {
+    border-style: dashed;
+    color: var(--muted);
+}
+
+.slots .learning small {
+    color: var(--lime);
+}
+
+/* =========================================
+   9. PROJECTS SECTION (Grid)
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;         /* keeps the image inside the rounded corners */
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--purple);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+}
+
+.badge-progress {
+    color: var(--purple);
+    border: 1px solid var(--purple);
+}
+
+.badge-done {
+    color: var(--lime);
+    border: 1px solid var(--lime);
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags li {
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 3px;
+    background-color: rgba(168, 85, 247, 0.15);
+    color: var(--purple);
+}
+
+/* =========================================
+   10. CONTACT SECTION (Flexbox)
+   ========================================= */
+.contact-layout {
+    display: flex;
+    gap: 3rem;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-links li {
+    margin-bottom: 0.8rem;
+}
+
+.contact-links a {
+    display: block;
+    padding: 0.9rem 1.2rem;
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    border-radius: var(--radius);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-links a:hover {
+    border-color: var(--lime);
+    transform: translateX(6px);
+}
+
+.contact-links span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--lime);
+}
+
+.contact-form {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contact-form label {
+    font-family: var(--mono-font);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.contact-form button {
+    align-self: flex-start;
+}
+
+/* =========================================
+   11. FOOTER
+   ========================================= */
+.site-footer {
+    text-align: center;
+    padding: 2.5rem 8%;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.footer-title {
+    font-family: var(--mono-font);
+    color: var(--lime);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.4rem;
+}
+
+/* =========================================
+   12. RESPONSIVE DESIGN (Media Queries)
+   ========================================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .about-layout,
+    .skills-layout {
+        grid-template-columns: 1fr;       /* one column */
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-card {
+        gap: 2rem;
+    }
+
+    .profile-info h1 {
+        font-size: 2.4rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.8rem 4%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .nav-links a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .section {
+        padding: 4rem 5%;
+        scroll-margin-top: 100px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .hero {
+        padding: 2rem 5%;
+    }
+
+    .profile-card {
+        flex-direction: column;           /* photo on top, info below */
+        text-align: center;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .profile-photo {
+        width: 190px;
+        height: 190px;
+    }
+
+    .profile-info h1 {
+        font-size: 2rem;
+    }
+
+    .profile-facts,
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;       /* one column */
+    }
+
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .contact-form button {
+        align-self: stretch;
+    }
+}
