@@ -1,32 +1,26 @@
-/* =========================================
-   1. VARIABLES (colors and fonts used everywhere)
-   ========================================= */
 :root {
-    --bg: #0a0a12;          /* near-black background */
-    --bg-alt: #0f0f1c;      /* slightly lighter, for alternating sections */
-    --panel: #13131f;       /* boxes / cards */
+    --bg: #0a0a12;
+    --bg-alt: #0f0f1c;
+    --panel: #13131f;
     --border: #2a2a40;
-    --text: #e7e7f0;        /* main text */
-    --muted: #8b8ba7;       /* secondary text */
-    --purple: #a855f7;      /* main neon accent */
-    --lime: #a3e635;        /* second neon accent */
+    --text: #e7e7f0;
+    --muted: #8b8ba7;
+    --purple: #a855f7;
+    --lime: #a3e635;
     --radius: 6px;
     --heading-font: "Chakra Petch", sans-serif;
     --mono-font: "JetBrains Mono", monospace;
     --body-font: "Inter", sans-serif;
 }
 
-/* =========================================
-   2. RESET + BASE STYLES
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;   /* padding is included in the width */
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;  /* smooth scrolling when clicking nav links */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -34,7 +28,6 @@ body {
     color: var(--text);
     line-height: 1.6;
     background-color: var(--bg);
-    /* faint grid lines in the background */
     background-image:
         linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
@@ -56,11 +49,10 @@ ul {
 }
 
 img {
-    max-width: 100%;          /* images never overflow their container */
+    max-width: 100%;
     display: block;
 }
 
-/* Reusable dark box with a thin border */
 .panel {
     background-color: var(--panel);
     border: 1px solid var(--border);
@@ -68,7 +60,6 @@ img {
     padding: 1.8rem;
 }
 
-/* Small uppercase monospace text used for labels */
 .intro-label,
 .profile-facts span,
 .panel-title,
@@ -79,11 +70,8 @@ img {
     letter-spacing: 2px;
 }
 
-/* =========================================
-   3. HEADER + NAVIGATION (Flexbox)
-   ========================================= */
 .site-header {
-    position: sticky;         /* stays at the top while scrolling */
+    position: sticky;
     top: 0;
     z-index: 10;
     display: flex;
@@ -101,7 +89,6 @@ img {
     color: var(--lime);
 }
 
-/* blinking cursor after the logo */
 .cursor {
     animation: blink 1s steps(1) infinite;
 }
@@ -134,9 +121,6 @@ img {
     box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
 }
 
-/* =========================================
-   4. BUTTONS
-   ========================================= */
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -171,9 +155,6 @@ img {
     color: #fff;
 }
 
-/* =========================================
-   5. HERO SECTION - profile card (Flexbox)
-   ========================================= */
 .hero {
     min-height: 88vh;
     display: flex;
@@ -195,10 +176,9 @@ img {
     box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
 }
 
-/* Photo frame with lime corner brackets */
 .profile-photo {
     position: relative;
-    flex-shrink: 0;           /* the photo never gets squished */
+    flex-shrink: 0;
     width: 240px;
     height: 240px;
     padding: 10px;
@@ -230,8 +210,8 @@ img {
 .photo-crop {
     width: 100%;
     height: 100%;
-    border-radius: 50%;       /* round crop */
-    overflow: hidden;         /* hides the parts of the zoomed photo outside the circle */
+    border-radius: 50%;
+    overflow: hidden;
     border: 2px solid var(--purple);
 }
 
@@ -239,8 +219,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.32);   /* zoom in to cut off the original photo's frame */
-    /* filters to make the photo pop */
+    transform: scale(1.32);
     filter: contrast(1.1) saturate(1.2) brightness(1.05);
 }
 
@@ -288,12 +267,9 @@ img {
     gap: 1rem;
 }
 
-/* =========================================
-   6. GENERAL SECTION STYLES
-   ========================================= */
 .section {
     padding: 5rem 8%;
-    scroll-margin-top: 60px;  /* so the sticky header doesn't cover titles */
+    scroll-margin-top: 60px;
 }
 
 .section-alt {
@@ -337,12 +313,9 @@ img {
     color: var(--lime);
 }
 
-/* =========================================
-   7. ABOUT SECTION (Grid)
-   ========================================= */
 .about-layout {
     display: grid;
-    grid-template-columns: 3fr 2fr;   /* text wider than the achievements */
+    grid-template-columns: 3fr 2fr;
     gap: 1.5rem;
 }
 
@@ -378,7 +351,7 @@ img {
 }
 
 .achievement .achievement-icon {
-    font-family: "Segoe UI Symbol", "DejaVu Sans", sans-serif;  /* fonts that include these symbols */
+    font-family: "Segoe UI Symbol", "DejaVu Sans", sans-serif;
     font-size: 2.4rem;
     line-height: 1;
     color: var(--lime);
@@ -407,9 +380,6 @@ img {
     color: var(--muted);
 }
 
-/* =========================================
-   8. SKILLS SECTION - skill bars (Grid)
-   ========================================= */
 .skills-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -417,7 +387,7 @@ img {
 }
 
 .tools {
-    grid-column: 1 / -1;      /* tools box stretches across both columns */
+    grid-column: 1 / -1;
 }
 
 .stat-list li {
@@ -440,7 +410,6 @@ img {
     color: var(--lime);
 }
 
-/* the empty bar */
 .bar {
     height: 12px;
     background-color: var(--bg);
@@ -449,12 +418,10 @@ img {
     overflow: hidden;
 }
 
-/* the filled part; its width is the --level set in the HTML */
 .bar-fill {
     width: var(--level);
     height: 100%;
     background-color: var(--lime);
-    /* dark gaps every 10px to make the bar look segmented */
     background-image: repeating-linear-gradient(90deg, transparent 0 8px, var(--panel) 8px 10px);
     box-shadow: 0 0 10px rgba(163, 230, 53, 0.5);
 }
@@ -464,7 +431,6 @@ img {
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
-/* Tool tags */
 .slots {
     display: flex;
     flex-wrap: wrap;
@@ -495,12 +461,9 @@ img {
     color: var(--lime);
 }
 
-/* =========================================
-   9. PROJECTS SECTION (Grid)
-   ========================================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -508,7 +471,7 @@ img {
     background-color: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    overflow: hidden;         /* keeps the image inside the rounded corners */
+    overflow: hidden;
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -572,9 +535,6 @@ img {
     color: var(--purple);
 }
 
-/* =========================================
-   10. CONTACT SECTION (Flexbox)
-   ========================================= */
 .contact-layout {
     display: flex;
     gap: 3rem;
@@ -654,9 +614,6 @@ img {
     align-self: flex-start;
 }
 
-/* =========================================
-   11. FOOTER
-   ========================================= */
 .site-footer {
     text-align: center;
     padding: 2.5rem 8%;
@@ -672,15 +629,11 @@ img {
     margin-bottom: 0.4rem;
 }
 
-/* =========================================
-   12. RESPONSIVE DESIGN (Media Queries)
-   ========================================= */
 
-/* Tablets */
 @media (max-width: 992px) {
     .about-layout,
     .skills-layout {
-        grid-template-columns: 1fr;       /* one column */
+        grid-template-columns: 1fr;
     }
 
     .projects-grid {
@@ -696,7 +649,6 @@ img {
     }
 }
 
-/* Phones */
 @media (max-width: 700px) {
     .site-header {
         flex-direction: column;
@@ -729,7 +681,7 @@ img {
     }
 
     .profile-card {
-        flex-direction: column;           /* photo on top, info below */
+        flex-direction: column;
         text-align: center;
         padding: 1.8rem 1.2rem;
     }
@@ -749,7 +701,7 @@ img {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;       /* one column */
+        grid-template-columns: 1fr;
     }
 
     .contact-layout {
